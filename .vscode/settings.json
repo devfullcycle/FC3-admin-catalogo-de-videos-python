@@ -1,0 +1,41 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": [
+        "--disable=C0111"
+    ],
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/__pypackages__/3.10/lib"
+    ],
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/__pypackages__/3.10/lib"
+    ],
+    "peacock.remoteColor": "#25415d",
+    "python.testing.pytestArgs": [
+        "src",
+        "--ignore",
+        "__pypackages__"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#345a81",
+        "activityBar.activeBorder": "#441b30",
+        "activityBar.background": "#345a81",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#441b30",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "sash.hoverBorder": "#345a81",
+        "statusBar.background": "#345a81",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#4373a5",
+        "statusBarItem.remoteBackground": "#345a81",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "tab.activeBorder": "#345a81",
+        "titleBar.activeBackground": "#345a81",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#345a8199",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    }
+}

@@ -1,0 +1,2 @@
+[MASTER]
+ignore=__pypackages__/**/*.py
