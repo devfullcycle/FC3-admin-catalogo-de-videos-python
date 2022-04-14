@@ -6,7 +6,8 @@ authors = [
     {name = "Luiz Carlos", email = "argentinaluiz@gmail.com"},
 ]
 license-expression = "MIT"
-dependencies = []
+dependencies = [
+    "djangorestframework>=3.13.1"]
 requires-python = ">=3.10.2"
 
 [project.urls]
