@@ -1,6 +1,6 @@
 # pylint: disable=unexpected-keyword-arg,protected-access
 
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from typing import List, Optional
 import unittest
 from __seedwork.domain.entities import Entity
@@ -66,7 +66,9 @@ class TestInMemoryRepository(unittest.TestCase):
         with self.assertRaises(NotFoundException) as assert_error:
             self.repo.find_by_id(unique_entity_id)
         self.assertEqual(
-            assert_error.exception.args[0], "Entity not found using ID 'af46842e-027d-4c91-b259-3a3642144ba4'")
+            assert_error.exception.args[0],
+            "Entity not found using ID 'af46842e-027d-4c91-b259-3a3642144ba4'"
+        )
 
     def test_find_by_id(self):
         entity = StubEntity(name='test', price=5)

@@ -1,8 +1,7 @@
 import unittest
-
-from tomlkit import string
-from __seedwork.domain.validators import DRFValidator, StrictBooleanField, StrictCharField
 from rest_framework import serializers
+
+from __seedwork.domain.validators import DRFValidator, StrictBooleanField, StrictCharField
 
 
 # pylint: disable=abstract-method
@@ -64,13 +63,14 @@ class TestStrictCharFieldUnit(unittest.TestCase):
 
         serializer = StubStrictCharFieldSerializer(data={'name': None})
         self.assertTrue(serializer.is_valid())
-    
+
     def test_is_valid(self):
         class StubStrictCharFieldSerializer(serializers.Serializer):
             name = StrictCharField()
 
         serializer = StubStrictCharFieldSerializer(data={'name': 'some value'})
         self.assertTrue(serializer.is_valid())
+
 
 class TestStrictBooleanFieldUnit(unittest.TestCase):
 
@@ -116,4 +116,3 @@ class TestStrictBooleanFieldUnit(unittest.TestCase):
 
         serializer = StubStrictBooleanFieldSerializer(data={'name': False})
         self.assertTrue(serializer.is_valid())
-

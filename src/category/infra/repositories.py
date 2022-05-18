@@ -17,10 +17,17 @@ class CategoryInMemoryRepository(CategoryRepository, InMemorySearchableRepositor
 
         return items
 
-    def _apply_sort(self, items: List[Category], sort: str = None, sort_dir: str = None) -> List[Category]:
+    def _apply_sort(
+        self,
+        items:
+        List[Category],
+        sort: str = None,
+        sort_dir:
+        str = None
+    ) -> List[Category]:
         return super()._apply_sort(items, sort, sort_dir) \
             if sort \
             else super()._apply_sort(items, "created_at", "desc")
 
-#validação 
+# validação
 #repositório - ordenação - created_at, filter - name

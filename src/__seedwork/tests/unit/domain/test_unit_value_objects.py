@@ -84,7 +84,7 @@ class TestUniqueEntityIdUnit(unittest.TestCase):
         value_object = UniqueEntityId(uuid_value)
         self.assertEqual(value_object.id, str(uuid_value))
 
-    def test_generate_id_when_no_passed_id_in_constructor(self):
+    def test_generate_id_when_no_passed_id_in_constructor(self):  # pylint: disable=no-self-use
         with patch.object(
             UniqueEntityId,
             '_UniqueEntityId__validate',

@@ -1,6 +1,7 @@
 {
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
+    "python.linting.pylintPath": "pylint",
     "python.linting.pylintArgs": [
         "--disable=C0111"
     ],

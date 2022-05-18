@@ -1,6 +1,6 @@
 
 from abc import ABC
-from dataclasses import dataclass, field, asdict
+from dataclasses import Field, dataclass, field, asdict
 from typing import Any
 
 from __seedwork.domain.value_objects import UniqueEntityId
@@ -9,13 +9,12 @@ from __seedwork.domain.value_objects import UniqueEntityId
 @dataclass(frozen=True, slots=True)
 class Entity(ABC):
 
-    # pylint: disable=unnecessary-lambda
     unique_entity_id: UniqueEntityId = field(
-        default_factory=lambda: UniqueEntityId())
+        default_factory=lambda: UniqueEntityId()  # pylint: disable=unnecessary-lambda
+    )
 
-    # pylint: disable=invalid-name
     @property
-    def id(self):
+    def id(self):  # pylint: disable=invalid-name
         return str(self.unique_entity_id)
 
     def _set(self, name: str, value: Any):
@@ -27,3 +26,8 @@ class Entity(ABC):
         entity_dict.pop('unique_entity_id')
         entity_dict['id'] = self.id
         return entity_dict
+
+    @classmethod
+    def get_field(cls, entity_field: str) -> Field:
+        # pylint: disable=no-member
+        return cls.__dataclass_fields__[entity_field]

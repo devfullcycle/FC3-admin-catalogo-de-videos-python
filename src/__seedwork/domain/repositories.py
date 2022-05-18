@@ -2,7 +2,7 @@
 
 from abc import ABC
 import abc
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field
 import math
 from typing import Any, Generic, List, Optional, TypeVar
 from __seedwork.domain.value_objects import UniqueEntityId
@@ -94,19 +94,18 @@ class SearchParams(Generic[Filter]):
         self.filter = None if self.filter == "" or self.filter is None \
             else str(self.filter)
 
-    def _convert_to_int(self, value: Any, default=0) -> int:
+    def _convert_to_int(self, value: Any, default=0) -> int:  # pylint: disable=no-self-use
         try:
             return int(value)
         except (ValueError, TypeError):
             return default
 
-    def _get_dataclass_field(self, field_name):
-        # pylint: disable=no-member
-        return SearchParams.__dataclass_fields__[field_name]
+    def _get_dataclass_field(self, field_name):  # pylint: disable=no-self-use
+        return SearchParams.__dataclass_fields__[field_name]  # pylint: disable=no-member
 
 
 @dataclass(slots=True, kw_only=True, frozen=True)
-class SearchResult(Generic[ET, Filter]):
+class SearchResult(Generic[ET, Filter]):  # pylint: disable=too-many-instance-attributes
     items: List[ET]
     total: int
     current_page: int
@@ -204,7 +203,7 @@ class InMemorySearchableRepository(
             return sorted(items, key=lambda item: getattr(item, sort), reverse=is_reverse)
         return items
 
-    def _apply_paginate(self, items: List[ET], page: int, per_page: int) -> List[ET]:
+    def _apply_paginate(self, items: List[ET], page: int, per_page: int) -> List[ET]:  # pylint: disable=no-self-use
         start = (page - 1) * per_page
         limit = start + per_page
         return items[slice(start, limit)]

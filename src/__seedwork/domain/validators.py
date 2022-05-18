@@ -1,7 +1,6 @@
 
 from abc import ABC
 import abc
-import contextlib
 from dataclasses import dataclass
 from typing import Any, Dict, Generic, List, TypeVar
 from rest_framework.fields import BooleanField, CharField
@@ -59,19 +58,19 @@ class ValidatorFieldsInterface(ABC, Generic[PropsValidated]):
         raise NotImplementedError()
 
 
-class DRFValidator(ValidatorFieldsInterface[PropsValidated], ABC):
+class DRFValidator(ValidatorFieldsInterface[PropsValidated], ABC):  # pylint: disable=too-few-public-methods
 
     def validate(self, data: Serializer) -> bool:
         serializer = data
         if serializer.is_valid():
             self.validated_data = dict(serializer.validated_data)
             return True
-        else:
-            self.errors = {
-                field: [str(_error) for _error in _errors]
-                for field, _errors in serializer.errors.items()
-            }
-            return False
+
+        self.errors = {
+            field: [str(_error) for _error in _errors]
+            for field, _errors in serializer.errors.items()
+        }
+        return False
 
 
 class StrictCharField(CharField):
@@ -85,12 +84,11 @@ class StrictCharField(CharField):
 
 class StrictBooleanField(BooleanField):
 
-    def to_internal_value(self, data):
-        with contextlib.suppress(TypeError):
-            if data is True:
-                return True
-            if data is False:
-                return False
-            elif data is None and self.allow_null:
-                return None
+    def to_internal_value(self, data):  # pylint: disable=inconsistent-return-statements
+        if data is True:
+            return True
+        if data is False:
+            return False
+        if data is None and self.allow_null:
+            return None
         self.fail('invalid', input=data)
