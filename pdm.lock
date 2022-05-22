@@ -143,7 +143,7 @@ summary = "Provider of IANA time zone data"
 
 [metadata]
 lock_version = "3.1"
-content_hash = "sha256:c73b2412b4ea67cbcb37ccecc7cf61cc3d6d1b18421698880e4f815ddcfd0d3f"
+content_hash = "sha256:d7684c2ff527c95b616ea9df072922f9c3476d4c0d3b12f49698020a1a77c614"
 
 [metadata.files]
 "asgiref 3.5.2" = [
