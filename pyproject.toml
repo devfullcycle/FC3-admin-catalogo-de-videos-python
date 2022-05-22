@@ -6,9 +6,10 @@ authors = [
     {name = "Luiz Carlos", email = "argentinaluiz@gmail.com"},
 ]
 dependencies = [
-    "-e file:///${PROJECT_ROOT}/src/django_app#egg=django_app",
-    "-e file:///${PROJECT_ROOT}/src/core#egg=core",
     "pytest>=7.1.2",
+    "django>=4.0.4",
+    "djangorestframework>=3.13.1",
+    "pytest-cov>=3.0.0",
 ]
 requires-python = ">=3.10"
 license = {text = "MIT"}

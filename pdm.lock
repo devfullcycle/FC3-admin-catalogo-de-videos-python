@@ -23,18 +23,6 @@ requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 summary = "Cross-platform colored terminal text."
 
 [[package]]
-name = "core"
-version = "0.0.1"
-requires_python = ">=3.10"
-editable = true
-path = "./src/core"
-summary = "UNKNOWN"
-dependencies = [
-    "djangorestframework>=3.13.1",
-    "pytest-cov>=3.0.0",
-]
-
-[[package]]
 name = "coverage"
 version = "6.3.3"
 requires_python = ">=3.7"
@@ -60,17 +48,6 @@ dependencies = [
     "asgiref<4,>=3.4.1",
     "sqlparse>=0.2.2",
     "tzdata; sys_platform == \"win32\"",
-]
-
-[[package]]
-name = "django-app"
-version = "0.0.1"
-requires_python = ">=3.10"
-editable = true
-path = "./src/django_app"
-summary = "UNKNOWN"
-dependencies = [
-    "django>=4.0.4",
 ]
 
 [[package]]
@@ -166,7 +143,7 @@ summary = "Provider of IANA time zone data"
 
 [metadata]
 lock_version = "3.1"
-content_hash = "sha256:eaaa57950d6373b7706bed999596c425533600263b51a6dc2fd85b81012c998a"
+content_hash = "sha256:c73b2412b4ea67cbcb37ccecc7cf61cc3d6d1b18421698880e4f815ddcfd0d3f"
 
 [metadata.files]
 "asgiref 3.5.2" = [
