@@ -90,12 +90,7 @@ class TestInMemoryRepository(unittest.TestCase):
     def test_throw_not_found_exception_in_update(self):
         entity = StubEntity(name='test', price=5)
         with self.assertRaises(NotFoundException) as assert_error:
-            self.repo.find_by_id(entity.id)
-        self.assertEqual(
-            assert_error.exception.args[0], f"Entity not found using ID '{entity.id}'")
-
-        with self.assertRaises(NotFoundException) as assert_error:
-            self.repo.find_by_id(entity.unique_entity_id)
+            self.repo.update(entity)
         self.assertEqual(
             assert_error.exception.args[0], f"Entity not found using ID '{entity.id}'")
 
