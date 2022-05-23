@@ -2,11 +2,11 @@
 # pylint: disable=unexpected-keyword-arg
 from dataclasses import dataclass, asdict
 from typing import Optional
-from __seedwork.application.dto import PaginationOutput, PaginationOutputMapper, SearchInput
-from __seedwork.application.use_cases import UseCase
-from category.domain.entities import Category
-from category.domain.repositories import CategoryRepository
-from category.application.dto import CategoryOutput, CategoryOutputMapper
+from core.__seedwork.application.dto import PaginationOutput, PaginationOutputMapper, SearchInput
+from core.__seedwork.application.use_cases import UseCase
+from core.category.domain.entities import Category
+from core.category.domain.repositories import CategoryRepository
+from core.category.application.dto import CategoryOutput, CategoryOutputMapper
 
 
 @dataclass(slots=True, frozen=True)

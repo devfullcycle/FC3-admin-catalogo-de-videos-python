@@ -5,9 +5,9 @@ import abc
 from dataclasses import dataclass, field
 import math
 from typing import Any, Generic, List, Optional, TypeVar
-from __seedwork.domain.value_objects import UniqueEntityId
-from __seedwork.domain.entities import Entity
-from __seedwork.domain.exceptions import NotFoundException
+from core.__seedwork.domain.value_objects import UniqueEntityId
+from core.__seedwork.domain.entities import Entity
+from core.__seedwork.domain.exceptions import NotFoundException
 
 ET = TypeVar('ET', bound=Entity)
 

@@ -7,15 +7,28 @@ authors = [
 ]
 dependencies = [
     "django>=4.0.4",
-    "pytest>=7.1.2",
-    "pytest-cov>=3.0.0",
     "djangorestframework>=3.13.1"
 ]
+
 requires-python = ">=3.10"
 license = {text = "MIT"}
 
 [tool.pdm]
-
+[tool.pdm.dev-dependencies]
+dev = [
+    "autopep8>=1.6.0",
+    "pylint>=2.13.0",
+    "pytest>=7.1.1",
+    "pytest-cov>=3.0.0",
+]
+[tool.pdm.scripts]
+manage="python ./src/django_app/manage.py"
+pep8 = "autopep8 --in-place --recursive ./src"
+pylint = "pylint ./src"
+runserver = "pdm run manage runserver 0.0.0.0:8000"
+test = "pytest --ignore __pypackages__"
+test_cov = "pdm run test --cov ./src --cov-fail-under 80"
+test_cov_html = "pdm run test_cov --cov-report html:./__coverage"
 [build-system]
 requires = ["pdm-pep517>=0.12.0"]
 build-backend = "pdm.pep517.api"

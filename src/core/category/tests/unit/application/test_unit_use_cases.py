@@ -3,21 +3,21 @@ from datetime import datetime, timedelta
 from typing import Optional
 import unittest
 from unittest.mock import patch
-from __seedwork.application.dto import PaginationOutput, PaginationOutputMapper, SearchInput
-from __seedwork.application.use_cases import UseCase
-from __seedwork.domain.exceptions import NotFoundException
-from category.application.dto import CategoryOutput, CategoryOutputMapper
+from core.__seedwork.application.dto import PaginationOutput, PaginationOutputMapper, SearchInput
+from core.__seedwork.application.use_cases import UseCase
+from core.__seedwork.domain.exceptions import NotFoundException
+from core.category.application.dto import CategoryOutput, CategoryOutputMapper
 
-from category.application.use_cases import (
+from core.category.application.use_cases import (
     CreateCategoryUseCase,
     DeleteCategoryUseCase,
     GetCategoryUseCase,
     ListCategoriesUseCase,
     UpdateCategoryUseCase
 )
-from category.domain.entities import Category
-from category.domain.repositories import CategoryRepository
-from category.infra.repositories import CategoryInMemoryRepository
+from core.category.domain.entities import Category
+from core.category.domain.repositories import CategoryRepository
+from core.category.infra.in_memory.repositories import CategoryInMemoryRepository
 
 
 class TestCreateCategoryUseCaseUnit(unittest.TestCase):

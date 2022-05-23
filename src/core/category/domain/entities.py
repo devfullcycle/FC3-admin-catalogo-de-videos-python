@@ -1,10 +1,10 @@
 from datetime import datetime
 from dataclasses import dataclass, field
 from typing import Optional
-from __seedwork.domain.entities import Entity
-from __seedwork.domain.exceptions import EntityValidationException
-#from __seedwork.domain.validators import ValidatorRules
-from category.domain.validators import CategoryValidatorFactory
+from core.__seedwork.domain.entities import Entity
+from core.__seedwork.domain.exceptions import EntityValidationException
+#from core.__seedwork.domain.validators import ValidatorRules
+from core.category.domain.validators import CategoryValidatorFactory
 
 # 3.10 - DataClass
 

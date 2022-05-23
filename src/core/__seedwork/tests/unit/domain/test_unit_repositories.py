@@ -3,8 +3,8 @@
 from dataclasses import dataclass
 from typing import List, Optional
 import unittest
-from __seedwork.domain.entities import Entity
-from __seedwork.domain.repositories import (
+from core.__seedwork.domain.entities import Entity
+from core.__seedwork.domain.repositories import (
     ET,
     Filter,
     InMemoryRepository,
@@ -14,8 +14,8 @@ from __seedwork.domain.repositories import (
     SearchResult,
     SearchableRepositoryInterface
 )
-from __seedwork.domain.exceptions import NotFoundException
-from __seedwork.domain.value_objects import UniqueEntityId
+from core.__seedwork.domain.exceptions import NotFoundException
+from core.__seedwork.domain.value_objects import UniqueEntityId
 
 
 class TestRepositoryInterface(unittest.TestCase):

@@ -1,5 +1,5 @@
 import unittest
-from __seedwork.application.use_cases import UseCase
+from core.__seedwork.application.use_cases import UseCase
 
 
 class TestUseCases(unittest.TestCase):

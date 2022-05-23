@@ -1,7 +1,7 @@
 from typing import List
-from category.domain.entities import Category
-from category.domain.repositories import CategoryRepository
-from __seedwork.domain.repositories import InMemorySearchableRepository
+from core.category.domain.entities import Category
+from core.category.domain.repositories import CategoryRepository
+from core.__seedwork.domain.repositories import InMemorySearchableRepository
 
 
 class CategoryInMemoryRepository(CategoryRepository, InMemorySearchableRepository):

@@ -3,7 +3,7 @@ from abc import ABC
 from dataclasses import Field, dataclass, field, asdict
 from typing import Any
 
-from __seedwork.domain.value_objects import UniqueEntityId
+from core.__seedwork.domain.value_objects import UniqueEntityId
 
 
 @dataclass(frozen=True, slots=True)

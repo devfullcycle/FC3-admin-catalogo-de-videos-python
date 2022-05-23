@@ -1,6 +1,6 @@
 from typing import Dict
 from rest_framework import serializers
-from __seedwork.domain.validators import DRFValidator, StrictBooleanField, StrictCharField
+from core.__seedwork.domain.validators import DRFValidator, StrictBooleanField, StrictCharField
 
 # pylint: disable=abstract-method
 

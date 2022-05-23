@@ -3,7 +3,7 @@ from abc import ABC
 import json
 from dataclasses import dataclass, field, fields
 import uuid
-from __seedwork.domain.exceptions import InvalidUuidException
+from core.__seedwork.domain.exceptions import InvalidUuidException
 
 # ABC - Abstract Base Class
 

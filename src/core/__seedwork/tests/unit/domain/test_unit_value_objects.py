@@ -5,8 +5,8 @@ from dataclasses import FrozenInstanceError, dataclass, is_dataclass
 import unittest
 from unittest.mock import patch
 import uuid
-from __seedwork.domain.exceptions import InvalidUuidException
-from __seedwork.domain.value_objects import UniqueEntityId, ValueObject
+from core.__seedwork.domain.exceptions import InvalidUuidException
+from core.__seedwork.domain.value_objects import UniqueEntityId, ValueObject
 
 
 @dataclass(frozen=True)

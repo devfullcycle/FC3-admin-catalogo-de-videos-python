@@ -3,8 +3,8 @@ from typing import Optional
 import unittest
 
 from datetime import datetime
-from category.application.dto import CategoryOutput, CategoryOutputMapper
-from category.domain.entities import Category
+from core.category.application.dto import CategoryOutput, CategoryOutputMapper
+from core.category.domain.entities import Category
 
 
 class TestCategoryOutputUnit(unittest.TestCase):

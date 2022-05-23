@@ -1,14 +1,14 @@
 # pylint: disable=unexpected-keyword-arg
 from typing import List, Optional
 import unittest
-from __seedwork.application.dto import (
+from core.__seedwork.application.dto import (
     Item,
     PaginationOutput,
     PaginationOutputMapper,
     SearchInput,
     Filter
 )
-from __seedwork.domain.repositories import SearchResult
+from core.__seedwork.domain.repositories import SearchResult
 
 
 class TestSearchInput(unittest.TestCase):
