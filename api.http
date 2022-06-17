@@ -1,0 +1,25 @@
+GET http://localhost:8000/categories/
+
+###
+GET http://localhost:8000/categories/5722df5e-5007-4b55-b693-d663ab503ad9/
+
+###
+POST http://localhost:8000/categories/
+Content-Type: application/json
+
+{
+    "name": "Movie"    
+}
+
+###
+PUT http://localhost:8000/categories/f82fe939-5931-43da-932a-119059245602/
+Content-Type: application/json
+
+{
+    "name": "Movie11111",
+    "description": "some desc",
+    "is_active": false
+}
+
+###
+DELETE http://localhost:8000/categories/5722df5e-5007-4b55-b693-d663ab503ad9/

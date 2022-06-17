@@ -14,6 +14,9 @@ class CreateCategoryUseCase(UseCase):
 
     category_repo: CategoryRepository
 
+    def __post_init__(self):
+        print('executou')
+
     def execute(self, input_param: 'Input') -> 'Output':
         category = Category(
             name=input_param.name,

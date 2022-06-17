@@ -7,7 +7,10 @@ authors = [
 ]
 dependencies = [
     "django>=4.0.4",
-    "djangorestframework>=3.13.1"
+    "djangorestframework>=3.13.1",
+    "django-extensions>=3.1.5",
+    "dependency-injector>=4.39.1",
+    "pytest-django>=4.5.2",
 ]
 
 requires-python = ">=3.10"
