@@ -9,12 +9,12 @@ dependencies = [
     "django>=4.0.4",
     "djangorestframework>=3.13.1",
     "django-extensions>=3.1.5",
-    "dependency-injector>=4.39.1",
-    "pytest-django>=4.5.2",
+    "dependency-injector>=4.39.1"
 ]
 
 requires-python = ">=3.10"
 license = {text = "MIT"}
+[project.optional-dependencies]
 
 [tool.pdm]
 [tool.pdm.dev-dependencies]
@@ -23,6 +23,8 @@ dev = [
     "pylint>=2.13.0",
     "pytest>=7.1.1",
     "pytest-cov>=3.0.0",
+    "pytest-django>=4.5.2",
+    "model-bakery>=1.6.0",
 ]
 [tool.pdm.scripts]
 manage="python ./src/django_app/manage.py"

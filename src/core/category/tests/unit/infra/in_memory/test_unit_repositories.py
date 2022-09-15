@@ -1,5 +1,6 @@
 # pylint: disable=unexpected-keyword-arg
-from datetime import datetime, timedelta
+from datetime import timedelta
+from django.utils import timezone
 import unittest
 from core.category.domain.entities import Category
 from core.category.infra.in_memory.repositories import CategoryInMemoryRepository
@@ -32,9 +33,9 @@ class TestCategoryInMemoryRepositoryUnit(unittest.TestCase):
     def test_sort_by_created_at_when_sort_param_is_null(self):
         items = [
             Category(name='test'),
-            Category(name='TEST', created_at=datetime.now() +
+            Category(name='TEST', created_at=timezone.now() +
                      timedelta(seconds=100)),
-            Category(name='fake', created_at=datetime.now() +
+            Category(name='fake', created_at=timezone.now() +
                      timedelta(seconds=200)),
         ]
         # pylint: disable=protected-access

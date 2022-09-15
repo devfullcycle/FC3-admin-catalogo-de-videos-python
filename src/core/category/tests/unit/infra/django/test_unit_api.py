@@ -3,7 +3,7 @@ import unittest
 from unittest import mock
 from rest_framework.test import APIRequestFactory
 from rest_framework.request import Request
-from core.category.infra.django.api import CategoryResource
+from core.category.infra.django_app.api import CategoryResource
 from core.category.application.dto import CategoryOutput
 from core.category.application.use_cases import (
     CreateCategoryUseCase,

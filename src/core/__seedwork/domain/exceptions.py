@@ -20,6 +20,12 @@ class EntityValidationException(Exception):
         self.error = error
         super().__init__('Entity Validation Error')
 
+class LoadEntityException(Exception):
+    error: 'ErrorFields'
+
+    def __init__(self, error: 'ErrorFields') -> None:
+        self.error = error
+        super().__init__('Load Entity Error')
 
 class NotFoundException(Exception):
     pass

@@ -2,6 +2,7 @@
 from datetime import datetime, timedelta
 from typing import Optional
 import unittest
+from django.utils import timezone
 from unittest.mock import patch
 from core.__seedwork.application.dto import PaginationOutput, PaginationOutputMapper, SearchInput
 from core.__seedwork.application.use_cases import UseCase
@@ -210,7 +211,7 @@ class TestListCategoriesUseCase(unittest.TestCase):
     def test_execute_using_empty_search_params(self):
         self.category_repo.items = [
             Category(name='test 1'),
-            Category(name='test 2', created_at=datetime.now() +
+            Category(name='test 2', created_at=timezone.now() +
                      timedelta(seconds=200)),
         ]
         with patch.object(
