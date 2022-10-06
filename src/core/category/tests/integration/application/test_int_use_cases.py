@@ -365,3 +365,33 @@ class TestUpdateCategoryUseCaseInt(unittest.TestCase):
             self.assertEqual(category.description, expected['description'])
             self.assertEqual(category.is_active, expected['is_active'])
             self.assertEqual(category.created_at, expected['created_at'])
+
+@pytest.mark.django_db
+class TestDeleteCategoryUseCaseInt(unittest.TestCase):
+
+    use_case: DeleteCategoryUseCase
+    repo: CategoryDjangoRepository
+
+    def setUp(self) -> None:
+        self.repo = CategoryDjangoRepository()
+        self.use_case = DeleteCategoryUseCase(self.repo)
+
+    def test_throw_exception_when_category_not_found(self):
+        request = DeleteCategoryUseCase.Input(id='not_found')
+        with self.assertRaises(NotFoundException) as assert_error:
+            self.use_case.execute(request)
+        self.assertEqual(
+            assert_error.exception.args[0], "Entity not found using ID 'not_found'")
+
+    def test_execute(self):
+        model = baker.make(CategoryModel)
+        request = DeleteCategoryUseCase.Input(id=model.id)
+        self.use_case.execute(request)
+
+        with self.assertRaises(NotFoundException) as assert_error:
+            self.repo.find_by_id(model.id)
+        self.assertEqual(
+            assert_error.exception.args[0], 
+            f"Entity not found using ID '{model.id}'"
+        )
+
