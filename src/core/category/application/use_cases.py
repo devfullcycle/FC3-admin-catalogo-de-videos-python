@@ -95,7 +95,7 @@ class UpdateCategoryUseCase(UseCase):
 
     category_repo: CategoryRepository
 
-    def execute(self, input_param: 'Input') -> 'Output':
+    def execute(self, input_param: 'Input') -> 'Output': #Arquitetura Hexagonal
         entity = self.category_repo.find_by_id(input_param.id)
         entity.update(input_param.name, input_param.description)
 

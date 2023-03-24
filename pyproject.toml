@@ -25,6 +25,7 @@ dev = [
     "pytest-cov>=3.0.0",
     "pytest-django>=4.5.2",
     "model-bakery>=1.6.0",
+    "faker>=15.0.0",
 ]
 [tool.pdm.scripts]
 manage="python ./src/django_app/manage.py"

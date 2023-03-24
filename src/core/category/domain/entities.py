@@ -48,6 +48,10 @@ class Category(Entity):
             raise EntityValidationException(validator.errors)
         # lançar uma exceção
 
+    @staticmethod
+    def fake():
+        from .entities_faker_builder import CategoryFakerBuilder # pylint: disable=import-outside-toplevel
+        return CategoryFakerBuilder
 
 # piramide de testes
 # testes de unidades
