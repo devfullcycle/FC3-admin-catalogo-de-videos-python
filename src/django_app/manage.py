@@ -2,7 +2,6 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from core.__seedwork.domain.entities import Entity
 
 
 def main():

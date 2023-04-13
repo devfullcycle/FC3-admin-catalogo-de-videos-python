@@ -5,11 +5,7 @@ from dataclasses import dataclass
 from typing import Any, Dict, Generic, List, TypeVar
 from rest_framework.fields import BooleanField, CharField
 from rest_framework.serializers import Serializer
-from django.conf import settings
 from .exceptions import ValidationException
-
-if not settings.configured:
-    settings.configure(USE_I18N=False)
 
 
 @dataclass(frozen=True, slots=True)

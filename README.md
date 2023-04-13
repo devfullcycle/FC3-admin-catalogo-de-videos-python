@@ -19,3 +19,10 @@
 # uma categoria precisa ser cadastrada - casos de uso
 
 # dados -> gerar uma entidade -> persistir no banco via repositório
+
+# boas praticas de como criar testes end-to-end
+# tratamento de erros e erros de validações (rest framework)
+# organização settings.py
+# uso de MySQL
+# uso de migrações
+# uso de avançado do pytest

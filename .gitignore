@@ -6,3 +6,7 @@ __pypackages__
 .coverage
 __coverage
 db.sqlite3
+
+envs/.env
+envs/.env.test
+envs/.env.e2e
