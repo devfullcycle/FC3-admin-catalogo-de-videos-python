@@ -10,3 +10,9 @@ db.sqlite3
 envs/.env
 envs/.env.test
 envs/.env.e2e
+
+docker-compose.override.yaml
+
+.docker/dbdata
+
+db.sqlite

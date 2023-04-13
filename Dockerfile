@@ -6,11 +6,13 @@ RUN apt update && apt install -y --no-install-recommends \
                     zsh \
                     curl \
                     wget \
-                    fonts-powerline
+                    fonts-powerline \
+                    gcc \
+                    libmariadb-dev
 
 RUN useradd -ms /bin/bash python
 
-RUN pip install pdm pdm-venv
+RUN pip install pdm
 
 USER python
 

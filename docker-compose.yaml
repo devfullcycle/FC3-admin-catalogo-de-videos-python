@@ -9,3 +9,24 @@ services:
       - .:/home/python/app
     ports:
       - 8000:8000
+
+  db:
+    image: mysql:8.0.30-debian
+    container_name: micro-videos-python-db
+    profiles:
+      - dev
+    environment:
+      - MYSQL_DATABASE=micro-videos
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./.docker/dbdata:/var/lib/mysql:delegated
+  
+  db_test:
+    image: mysql:8.0.30-debian
+    container_name: micro-videos-python-db-test
+    environment:
+      - MYSQL_DATABASE=micro-videos-test
+      - MYSQL_ROOT_PASSWORD=root
+    tmpfs:
+      - /var/lib/mysql
+

@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  app:
+    volumes:
+      - ./.docker/zsh/powerlevel10k/.p10k.zsh:/home/python/.p10k.zsh:delegated
+      - ./.docker/zsh/history:/home/python/zsh:delegated
+
+# multiple docker-compose 
+
+# sync
+
+#history local
