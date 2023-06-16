@@ -218,7 +218,7 @@ class TestCategoryDjangoRepositoryInt(unittest.TestCase):
             filter='E'
         )
         search_result = self.repo.search(search_params)
-        self.assertEqual(search_result, CategoryRepository.SearchResult(
+        assert search_result == CategoryRepository.SearchResult(
             items=[
                 CategoryModelMapper.to_entity(models[0]),
                 CategoryModelMapper.to_entity(models[2]),
@@ -229,7 +229,7 @@ class TestCategoryDjangoRepositoryInt(unittest.TestCase):
             sort=None,
             sort_dir=None,
             filter='E'
-        ))
+        )
 
     def test_search_applying_paginate_and_sort(self):
         default_props = {

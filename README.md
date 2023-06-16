@@ -25,4 +25,6 @@
 # organização settings.py
 # uso de MySQL
 # uso de migrações
-# uso de avançado do pytest
+# uso de avançado do pytest`
+
+

@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
-from .config import config_service
+from django_app.config import config_service
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -73,6 +73,33 @@ DATABASES = {
     'default': {
         **config_service.database_conn,
         'TEST': config_service.database_conn,
+    },
+    'test_for_migrations': {
+        **config_service.database_conn,
+        'NAME': ':memory:' if config_service.database_conn['ENGINE'] == 'django.db.backends.sqlite3' else 'test_with_migrations',
+    }
+}
+
+LOGGING = {
+    'version': 1,
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': True,
+        }
     }
 }
 
@@ -117,3 +144,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

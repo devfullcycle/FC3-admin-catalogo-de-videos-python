@@ -85,7 +85,7 @@ class TestCategoryResourceUnit(unittest.TestCase):
                 **expected_response
             )
 
-            mock_category_to_response.return_value = expected_response
+            mock_category_to_response.return_value = {'data': expected_response}
 
             resource = CategoryResource(
                 ** {
@@ -104,11 +104,13 @@ class TestCategoryResourceUnit(unittest.TestCase):
             )
             self.assertEqual(response.status_code, 201)
             self.assertEqual(response.data, {
-                'id': 'af46842e-027d-4c91-b259-3a3642144ba4',
-                'name': 'Movie',
-                'description': None,
-                'is_active': True,
-                'created_at': expected_response['created_at']
+                'data': {
+                    'id': 'af46842e-027d-4c91-b259-3a3642144ba4',
+                    'name': 'Movie',
+                    'description': None,
+                    'is_active': True,
+                    'created_at': expected_response['created_at']
+                }
             })
         mock_serializer.assert_called_with(CategorySerializer, data=send_data)
 

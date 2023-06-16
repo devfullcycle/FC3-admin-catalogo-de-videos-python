@@ -22,6 +22,8 @@ class ConfigService(BaseSettings):
     language_code: str = 'en-us'
     middlewares_additional: List[str] = []
     secret_key: str
+    test_keep_db: bool = True
+    test_use_migrations: bool = True
 
     class Config:
         env_file = f'{_ENV_FOLDER}/.env', f'{_ENV_FOLDER}/.env.{APP_ENV}'

@@ -308,6 +308,28 @@ class CreateCategoryApiFixture:
                     'description': faker.description,
                     'is_active': True,
                 })
+            ),
+            HttpExpect(
+                request=Request(body={
+                    'name': faker.name,
+                    'is_active': True
+                }),
+                response=Response(body={
+                    'name': faker.name,
+                    'description': None,
+                    'is_active': True,
+                })
+            ),
+            HttpExpect(
+                request=Request(body={
+                    'name': faker.name,
+                    'is_active': False
+                }),
+                response=Response(body={
+                    'name': faker.name,
+                    'description': None,
+                    'is_active': False,
+                })
             )
         ]
         return [pytest.param(item, id=str(item.request.body)) for item in data]
@@ -426,7 +448,7 @@ class ListCategoriesApiFixture:
                         categories_named.second,
                         categories_named.first
                     ],
-                    meta={'current_page': 1, 'per_page': 15, 'last_page': 1, 'total': 4}
+                    meta={'total': 4, 'current_page': 1, 'per_page': 15, 'last_page': 1}
                 ),
                 entities=categories
             ),
@@ -434,7 +456,7 @@ class ListCategoriesApiFixture:
                 send_data={'page': 1, 'per_page': 2},
                 expected=SearchExpectation.Expected(
                     entities=[categories_named.fourth, categories_named.third],
-                    meta={'current_page': 1, 'per_page': 2, 'last_page': 2, 'total': 4}
+                    meta={'total': 4, 'current_page': 1, 'per_page': 2, 'last_page': 2}
                 ),
                 entities=categories
             ),
@@ -442,7 +464,7 @@ class ListCategoriesApiFixture:
                 send_data={'page': 2, 'per_page': 2},
                 expected=SearchExpectation.Expected(
                     entities=[categories_named.second, categories_named.first],
-                    meta={'current_page': 2, 'per_page': 2, 'last_page': 2, 'total': 4}
+                    meta={'total': 4, 'current_page': 2, 'per_page': 2, 'last_page': 2}
                 ),
                 entities=categories
             ),
@@ -484,8 +506,8 @@ class ListCategoriesApiFixture:
                     meta={
                         'total': 3,
                         'current_page': 1,
+                        'per_page': 2,
                         'last_page': 2,
-                        'per_page': 2
                     }
                 ),
                 entities=categories
@@ -504,8 +526,8 @@ class ListCategoriesApiFixture:
                     meta={
                         'total': 3,
                         'current_page': 2,
-                        'last_page': 2,
-                        'per_page': 2
+                        'per_page': 2,
+                        'last_page': 2
                     }
                 ),
                 entities=categories

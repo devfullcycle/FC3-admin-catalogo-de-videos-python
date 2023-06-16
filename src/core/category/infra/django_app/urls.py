@@ -18,7 +18,7 @@ urlpatterns = [
     path('categories/', CategoryResource.as_view(
         **__init_category_resource()
     )),
-    path('categories/<uuid:id>/', CategoryResource.as_view(
+    path('categories/<id>/', CategoryResource.as_view(
         **__init_category_resource()
     )),
 ]
